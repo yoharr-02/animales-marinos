@@ -15,34 +15,51 @@ body {
 /* PORTADA */
 .portada {
     height: 100vh;
+    background: linear-gradient(to bottom, #4facfe, #00f2fe);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #4facfe, #00f2fe);
     color: white;
-    font-size: 40px;
     text-align: center;
-    animation: fadeIn 2s ease;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+.portada h1 {
+    font-size: 50px;
+    margin: 0;
 }
 
-/* Contenedor */
+.portada p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Flecha */
+.flecha {
+    margin-top: 30px;
+    font-size: 30px;
+    animation: bajar 1.5s infinite;
+    cursor: pointer;
+}
+
+@keyframes bajar {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(10px);}
+    100% {transform: translateY(0);}
+}
+
+/* Contenido */
 .container {
+    padding: 50px 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    padding: 40px;
+    gap: 25px;
 }
 
 /* Tarjetas */
 .card {
-    background: white;
+    background: rgba(255,255,255,0.9);
     border-radius: 20px;
     width: 280px;
     padding: 15px;
@@ -62,6 +79,10 @@ body {
     border-radius: 15px;
 }
 
+.card h2 {
+    color: #0077b6;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -75,37 +96,39 @@ footer {
 
 <!-- PORTADA -->
 <div class="portada">
-    🌊 ANIMALES MARINOS 🐠
+    <h1>🌊 ANIMALES MARINOS 🐠</h1>
+    <p>Descubre algunas especies increíbles del océano</p>
+    <div class="flecha" onclick="bajar()">⬇️</div>
 </div>
 
 <!-- CONTENIDO -->
-<div class="container">
+<div class="container" id="contenido">
 
 <div class="card">
-    <h2>🐢 Tortuga Marina</h2>
-    <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f">
-    <p>Viajan miles de kilómetros.</p>
-    <p><strong>Dato curioso:</strong> Regresan a donde nacieron 💙</p>
-</div>
-
-<div class="card">
-    <h2>🐋 Ballena</h2>
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-    <p>Son gigantes del océano.</p>
-    <p><strong>Dato curioso:</strong> Cantan bajo el agua 🎶</p>
+    <h2>🐬 Delfín</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Dolphin1.jpg">
+    <p>Son muy inteligentes y sociales.</p>
+    <p><strong>Dato curioso:</strong> Se comunican con sonidos y saltos 💙</p>
 </div>
 
 <div class="card">
     <h2>🐙 Pulpo</h2>
-    <img src="https://images.unsplash.com/photo-1516117172878-fd2c41f4a759">
-    <p>Muy inteligentes.</p>
-    <p><strong>Dato curioso:</strong> Cambian de color 😳</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Octopus2.jpg">
+    <p>Uno de los animales más inteligentes del mar.</p>
+    <p><strong>Dato curioso:</strong> Puede cambiar de color 😳</p>
+</div>
+
+<div class="card">
+    <h2>🐋 Ballena</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Humpback_Whale_underwater_shot.jpg">
+    <p>El animal más grande del planeta.</p>
+    <p><strong>Dato curioso:</strong> Sus cantos viajan kilómetros 🎶</p>
 </div>
 
 <div class="card">
     <h2>🦈 Tiburón</h2>
-    <img src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12">
-    <p>Depredadores antiguos.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg">
+    <p>Depredadores marinos muy antiguos.</p>
     <p><strong>Dato curioso:</strong> Detectan vibraciones 🌀</p>
 </div>
 
@@ -116,13 +139,20 @@ footer {
 </footer>
 
 <script>
-// Animación automática (aparecen solitas)
-window.addEventListener("load", () => {
+// bajar suave
+function bajar(){
+    document.getElementById("contenido").scrollIntoView({behavior: "smooth"});
+}
+
+// animaciones al aparecer
+window.addEventListener("scroll", () => {
     const cards = document.querySelectorAll(".card");
-    cards.forEach((card, i) => {
-        setTimeout(() => {
+    const trigger = window.innerHeight * 0.8;
+
+    cards.forEach(card => {
+        if(card.getBoundingClientRect().top < trigger){
             card.classList.add("show");
-        }, i * 500);
+        }
     });
 });
 </script>
