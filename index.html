@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Animales Marinos</title>
+
+    <!-- Fuente bonita -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom, #a2d2ff, #caf0f8);
+        }
+
+        header {
+            background: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 40px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .animal {
+            background: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            animation: fadeUp 1.5s ease;
+        }
+
+        .animal:hover {
+            transform: scale(1.03);
+        }
+
+        .animal img {
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            color: #0077b6;
+        }
+
+        footer {
+            background: #023e8a;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌊 Animales Marinos</h1>
+    <p>Explora el increíble mundo del océano 🐠</p>
+</header>
+
+<section>
+
+    <div class="animal">
+        <h2>🐬 Delfín</h2>
+        <p>Los delfines son mamíferos marinos altamente inteligentes. Se comunican mediante sonidos y viven en grupos llamados manadas.</p>
+        <p><strong>Dato curioso:</strong> ¡Pueden reconocerse en el espejo!</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Dolphins.jpg">
+    </div>
+
+    <div class="animal">
+        <h2>🦈 Tiburón</h2>
+        <p>Los tiburones son depredadores muy antiguos. Existen desde antes que los dinosaurios.</p>
+        <p><strong>Dato curioso:</strong> Pueden detectar una gota de sangre a kilómetros.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/White_shark.jpg">
+    </div>
+
+    <div class="animal">
+        <h2>🐙 Pulpo</h2>
+        <p>El pulpo es un animal extremadamente inteligente. Puede resolver problemas y abrir frascos.</p>
+        <p><strong>Dato curioso:</strong> Tiene tres corazones.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Octopus2.jpg">
+    </div>
+
+    <div class="animal">
+        <h2>🐢 Tortuga Marina</h2>
+        <p>Las tortugas marinas viajan miles de kilómetros durante su vida.</p>
+        <p><strong>Dato curioso:</strong> Siempre regresan a la playa donde nacieron.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Green_turtle.jpg">
+    </div>
+
+    <div class="animal">
+        <h2>🐋 Ballena</h2>
+        <p>Las ballenas son los animales más grandes del planeta.</p>
+        <p><strong>Dato curioso:</strong> Sus cantos pueden viajar grandes distancias bajo el agua.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Humpback_Whale_underwater_shot.jpg">
+    </div>
+
+</section>
+
+<footer>
+    <p>🌟 Página creada por: <strong>Laila Arevalo</strong></p>
+</footer>
+
+</body>
+</html>
