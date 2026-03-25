@@ -2,25 +2,41 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Animales Marinos</title>
+<title>El Espacio</title>
 
 <style>
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #89f7fe, #66a6ff);
+    background: black;
+    color: white;
     overflow-x: hidden;
+}
+
+/* Fondo estrellas */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: estrellas 20s linear infinite;
+}
+
+@keyframes estrellas {
+    from {background-position: 0 0;}
+    to {background-position: 100px 100px;}
 }
 
 /* PORTADA */
 .portada {
     height: 100vh;
-    background: linear-gradient(to bottom, #4facfe, #00f2fe);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+    background: linear-gradient(to bottom, #000000, #020024);
     text-align: center;
 }
 
@@ -30,8 +46,7 @@ body {
 }
 
 .portada p {
-    font-size: 18px;
-    margin-top: 10px;
+    opacity: 0.8;
 }
 
 /* Flecha */
@@ -48,7 +63,7 @@ body {
     100% {transform: translateY(0);}
 }
 
-/* Contenido */
+/* Contenedor */
 .container {
     padding: 50px 20px;
     display: flex;
@@ -59,11 +74,12 @@ body {
 
 /* Tarjetas */
 .card {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.1);
     border-radius: 20px;
     width: 280px;
     padding: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
     opacity: 0;
     transform: translateY(50px);
     transition: 0.6s;
@@ -80,14 +96,14 @@ body {
 }
 
 .card h2 {
-    color: #0077b6;
+    color: #00c3ff;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    color: white;
+    opacity: 0.7;
 }
 </style>
 </head>
@@ -96,8 +112,8 @@ footer {
 
 <!-- PORTADA -->
 <div class="portada">
-    <h1>🌊 ANIMALES MARINOS 🐠</h1>
-    <p>Descubre algunas especies increíbles del océano</p>
+    <h1>🌌 EL ESPACIO 🌌</h1>
+    <p>Explora el universo y sus maravillas</p>
     <div class="flecha" onclick="bajar()">⬇️</div>
 </div>
 
@@ -105,31 +121,27 @@ footer {
 <div class="container" id="contenido">
 
 <div class="card">
-    <h2>🐬 Delfín</h2>
-    <img src="https://images.pexels.com/photos/2422915/pexels-photo-2422915.jpeg">
-    <p>Son muy inteligentes y sociales.</p>
-    <p><strong>Dato curioso:</strong> Se comunican con sonidos y saltos 💙</p>
+    <h2>🌍 Tierra</h2>
+    <img src="https://images.pexels.com/photos/355465/pexels-photo-355465.jpeg">
+    <p>Es nuestro hogar y el único planeta con vida conocida.</p>
 </div>
 
 <div class="card">
-    <h2>🐙 Pulpo</h2>
-    <img src="https://images.pexels.com/photos/209137/pexels-photo-209137.jpeg">
-    <p>Uno de los animales más inteligentes del mar.</p>
-    <p><strong>Dato curioso:</strong> Puede cambiar de color 😳</p>
+    <h2>🔴 Marte</h2>
+    <img src="https://images.pexels.com/photos/586030/pexels-photo-586030.jpeg">
+    <p>Conocido como el planeta rojo.</p>
 </div>
 
 <div class="card">
-    <h2>🐋 Ballena</h2>
-    <img src="https://images.pexels.com/photos/37730/pexels-photo-37730.jpeg">
-    <p>El animal más grande del planeta.</p>
-    <p><strong>Dato curioso:</strong> Sus cantos viajan kilómetros 🎶</p>
+    <h2>🪐 Saturno</h2>
+    <img src="https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg">
+    <p>Famoso por sus anillos impresionantes.</p>
 </div>
 
 <div class="card">
-    <h2>🦈 Tiburón</h2>
-    <img src="https://images.pexels.com/photos/1076758/pexels-photo-1076758.jpeg">
-    <p>Depredadores marinos muy antiguos.</p>
-    <p><strong>Dato curioso:</strong> Detectan vibraciones 🌀</p>
+    <h2>☀️ Sol</h2>
+    <img src="https://images.pexels.com/photos/87611/pexels-photo-87611.jpeg">
+    <p>La estrella que da vida a nuestro sistema solar.</p>
 </div>
 
 </div>
@@ -139,12 +151,10 @@ footer {
 </footer>
 
 <script>
-// bajar suave
 function bajar(){
     document.getElementById("contenido").scrollIntoView({behavior: "smooth"});
 }
 
-// animaciones al aparecer
 window.addEventListener("scroll", () => {
     const cards = document.querySelectorAll(".card");
     const trigger = window.innerHeight * 0.8;
